@@ -11,15 +11,13 @@ export default class DoublyLinkedList {
     const currentHead = this.head;
 
     if (currentHead) {
-      currentHead.setPreviousNode(newHead)
+      currentHead.setPreviousNode(newHead);
       newHead.setNextNode(currentHead);
     }
 
     this.head = newHead;
 
-    if (!this.tail) {
-      this.tail = newHead;
-    }
+    if (!this.tail) this.tail = newHead;
   }
 
   addToTail(data) {
@@ -33,29 +31,35 @@ export default class DoublyLinkedList {
 
     this.tail = newTail;
     
-    if (!this.head) {
-      this.head = newTail;
-    }
+    if (!this.head) this.head = newTail;
   }
 
   removeHead() {
     const removedHead = this.head;
 
-    if (!removedHead) {
-      return
-    }
+    if (!removedHead) return;
 
     this.head = removedHead.getNextNode();
     
-    if (this.head) {
-      this.head.setPreviousNode(null)
-    }
+    if (this.head) this.head.setPreviousNode(null);
 
-    if (removedHead === this.tail) {
-      this.removeTail();
-    }
+    if (removedHead === this.tail) this.removeTail();
 
     return removedHead.data;
+  }
+
+  removeTail() {
+    const removedTail = this.tail;
+
+    if (!removedTail) return;
+
+    this.tail = removedTail.getPreviousNode();
+    
+    if (this.tail) this.tail.setNextNode(null);
+
+    if (removedTail === this.head) this.removeHead();
+
+    return removedTail.data;
   }
   
   printList() {
