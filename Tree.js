@@ -50,4 +50,4 @@ export default class Tree {
         queue = queue.concat(current.children);
       }
     }
-  };
+}
