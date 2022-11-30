@@ -3,6 +3,7 @@ import Node from "./Node";
 export default class LinkedList {
   constructor() {
     this.head = null;
+
   }
 
   addToHead(data) {
@@ -29,17 +30,16 @@ export default class LinkedList {
 
   }
 
-  findNodeIteratively(data) {
-    let currentNode = this.head;
-
-    while (currentNode !== null) {
-      if (currentNode.data === data) {
-        return currentNode;
-      }
-      currentNode = currentNode.getNextNode()
+  findNode(data, currentNode = this.head) {
+    if(currentNode === null) {
+      return null;
+    } else if (currentNode.data === data) {
+      return currentNode;
+    } else {
+      return this.findNode(data, currentNode.next)
     }
   }
-
+  
   removeHead() {
     const removedHead = this.head;
     
