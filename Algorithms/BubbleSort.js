@@ -1,12 +1,6 @@
 // gonna have to write this code better. i'm not a fan.
 // also i want to be able to actually return the swapped array cuz otherwise what's the point
 
-const swap = (arr, indexOne, indexTwo) => {
-    const temp = arr[indexTwo];
-    arr[indexTwo] = arr[indexOne];
-    arr[indexOne] = temp;
-};
-
 export default function bubbleSort(input) {
     let swapCount = 0
     let swapping = true;
