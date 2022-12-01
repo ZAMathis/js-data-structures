@@ -7,7 +7,7 @@ const swap = (arr, indexOne, indexTwo) => {
     arr[indexOne] = temp;
 };
 
-export const bubbleSort = input => {
+export default function bubbleSort(input) {
     let swapCount = 0
     let swapping = true;
     
