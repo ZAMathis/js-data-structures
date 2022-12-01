@@ -1,4 +1,5 @@
 // gonna have to write this code better. i'm not a fan.
+// also i want to be able to actually return the swapped array cuz otherwise what's the point
 
 const swap = (arr, indexOne, indexTwo) => {
     const temp = arr[indexTwo];
